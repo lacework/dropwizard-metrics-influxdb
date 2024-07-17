@@ -1,9 +1,9 @@
 name: Build & Push to Artifactory
 
 on:
-#   pull_request:
-#     branches: 
-#       - "main"
+  #   pull_request:
+  #     branches:
+  #       - "main"
 
   push:
     branches:
@@ -14,5 +14,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: "corretto"
+          java-version: "11"
