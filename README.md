@@ -1,3 +1,14 @@
+# Forked Version
+
+Supports Dropwizard 4, requires Java 11 (Dropwizard 4 is on Java 11).
+
+Building on Devspaces:
+```
+export JAVA_HOME=/usr
+sudo update-java-alternatives --set java-1.11.0-openjdk-amd64 
+mvn install
+```
+
 Dropwizard Metrics v3 InfluxDb Integration
 ==========================================
 [![Build Status](https://travis-ci.org/iZettle/dropwizard-metrics-influxdb.svg?branch=master)](https://travis-ci.org/iZettle/dropwizard-metrics-influxdb)
