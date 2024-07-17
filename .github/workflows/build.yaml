@@ -9,6 +9,10 @@ on:
     branches:
       - "artifactory"
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,3 +25,13 @@ jobs:
         with:
           distribution: "corretto"
           java-version: "11"
+
+      - name: Artifactory Authentication
+        id: auth_artifactory
+        uses: lacework-dev/actions/auth-artifactory-v1@main
+
+      - name: Setup JFrog CLI
+        uses: jfrog/setup-jfrog-cli@v4
+        env:
+          JF_URL: https://artifactory.ops.lacework.engineering
+          JF_ACCESS_TOKEN: ${{ steps.auth_artifactory.outputs.ARTIFACTORY_ACCESS_TOKEN }}
