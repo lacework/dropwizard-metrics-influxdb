@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: arc-runner-lacework-dev-generic-medium
+    runs-on: arc-runner-lacework-generic-medium
 
     steps:
     - name: Checkout repository
